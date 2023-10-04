@@ -33,7 +33,10 @@ class Ball:
         # 랜덤 값에 따라 큰 공과 작은 공을 결정 -> 객체 생성시 큰공과 작은 공중 랜덤하게 생성하도록 함
         self.image = load_image('ball21x21.png') if (random.randint(0, 100) % 2) == 1 else load_image('ball41x41.png')
 
-    def update(self): pass
+    def update(self):
+        self.y -= 5
+        if self.y < 30:
+            self.y = 30
 
     def draw(self):
         self.image.draw(self.x, self.y)
