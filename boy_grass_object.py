@@ -28,9 +28,10 @@ class Boy:
 
 class Ball:
     def __init__(self):
-        self.x, self.y = random.randint(50, 750), 599
-        self.image = load_image('ball21x21.png')
-
+        self.x, self.y = random.randint(50, 750), 599  # x 좌표는 랜덤,  y좌표는 599에서 시작
+        # self.image = load_image('ball21x21.png') # 작은 공 이미지 로드
+        self.image = load_image('ball41x41.png') # 큰 공 이미지 로드
+        
     def update(self): pass
 
     def draw(self):
