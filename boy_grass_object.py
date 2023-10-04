@@ -30,16 +30,16 @@ class Boy:
 class Ball:
     def __init__(self):
         self.x, self.y = random.randint(50, 750), 599  # x 좌표는 랜덤,  y좌표는 599에서 시작
-        self.falling_speed = random.randint(5, 20)   # 공마다 떨어지는 속도를 랜덤하게 설정함
+        self.falling_speed = random.randint(5, 20)  # 공마다 떨어지는 속도를 랜덤하게 설정함
         # 랜덤 값에 따라 큰 공과 작은 공을 결정 -> 객체 생성시 큰공과 작은 공중 랜덤하게 생성하도록 함
         self.image = load_image('ball21x21.png') if (random.randint(0, 100) % 2) == 1 else load_image('ball41x41.png')
 
     def update(self):
         self.y -= self.falling_speed  # 공은 랜덤하게 설정된 속도로 아래를 향해 이동함
-        self.is_fall_on_grass() # 공이 땅에 떨어 졌는지 확인하고 땅에 닿으면 멈추게하는 함수
+        self.is_fall_on_grass()  # 공이 땅에 떨어 졌는지 확인하고 땅에 닿으면 멈추게하는 함수
 
     def is_fall_on_grass(self):
-        if self.y < 55 + self.image.h // 2: # 땅에 닿았는가를 결정할 때 공의 이미지 크기를 기준으로 계산하게 함
+        if self.y < 55 + self.image.h // 2:  # 땅에 닿았는가를 결정할 때 공의 이미지 크기를 기준으로 계산하게 함
             self.y = 55 + self.image.h // 2
             self.falling_speed = 0
 
