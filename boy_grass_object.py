@@ -35,8 +35,11 @@ class Ball:
 
     def update(self):
         self.y -= 5
-        if self.y < 30:
-            self.y = 30
+        self.is_fall_on_grass() # 공이 땅에 떨어 졌는지 확인하고 땅에 닿으면 멈추게하는 함수
+
+    def is_fall_on_grass(self):
+        if self.y < 55 + self.image.h // 2: # 땅에 닿았는가를 결정할 때 공의 이미지 크기를 기준으로 계산하게 함
+            self.y = 55 + self.image.h // 2
 
     def draw(self):
         self.image.draw(self.x, self.y)
