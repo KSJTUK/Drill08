@@ -26,16 +26,18 @@ class Boy:
     def draw(self):
         self.image.clip_draw(self.frame * 100, 0, 100, 100, self.x, self.y)
 
+
 class Ball:
     def __init__(self):
         self.x, self.y = random.randint(50, 750), 599  # x 좌표는 랜덤,  y좌표는 599에서 시작
         # 랜덤 값에 따라 큰 공과 작은 공을 결정 -> 객체 생성시 큰공과 작은 공중 랜덤하게 생성하도록 함
-        self.image = load_image('ball21x21.png') if (random.randint(0, 100) % 2)  == 1 else load_image('ball41x41.png')
-        
+        self.image = load_image('ball21x21.png') if (random.randint(0, 100) % 2) == 1 else load_image('ball41x41.png')
+
     def update(self): pass
 
     def draw(self):
         self.image.draw(self.x, self.y)
+
 
 def handle_events():
     global running
@@ -49,8 +51,6 @@ def handle_events():
 
 def reset_world():
     global running
-    global grass
-    global team
     global world
 
     running = True
@@ -60,17 +60,15 @@ def reset_world():
     world.append(grass)
 
     team = [Boy() for i in range(10)]
-    world += team     # 소년 10개의 객체를 만들고 월드 리스트에 저장
+    world += team  # 소년 10개의 객체를 만들고 월드 리스트에 저장
 
     balls = [Ball() for i in range(20)]
-    world += balls    # 큰 공 작은 공을 랜덤하게 20개 만들어 월드 리스트에 저장
+    world += balls  # 큰 공 작은 공을 랜덤하게 20개 만들어 월드 리스트에 저장
 
 
 def update_world():
-    grass.update()
     for o in world:
         o.update()
-    pass
 
 
 def render_world():
